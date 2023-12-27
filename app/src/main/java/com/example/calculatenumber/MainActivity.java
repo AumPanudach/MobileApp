@@ -16,17 +16,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ResultNumber = (EditText) findViewById(R.id.ResultNumber);
-        Maxnumber = (EditText) findViewById(R.id.Maxnumber);
-        MinNumber = (EditText) findViewById(R.id.Mimnuber);
-        NumberOne = (EditText) findViewById(R.id.NumberOne);
-        NumberTwo = (EditText) findViewById(R.id.NumberTwo);
-        button = (Button) findViewById(R.id.button);
+        ResultNumber = findViewById(R.id.ResultNumber);
+        Maxnumber =  findViewById(R.id.Maxnumber);
+        MinNumber =  findViewById(R.id.Mimnuber);
+        NumberOne =  findViewById(R.id.NumberOne);
+        NumberTwo =  findViewById(R.id.NumberTwo);
+        button =   findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String input1,input2;
-                Integer num1,num2;
+                Double num1,num2;
                 input1 = NumberOne.getText().toString().trim();
                 input2 = NumberTwo.getText().toString().trim();
                 if (input1.isEmpty() || input2.isEmpty()){
@@ -37,26 +37,26 @@ public class MainActivity extends AppCompatActivity {
                     MinNumber.setText("");
                     Maxnumber.setText("");
                 }else {
-                    num1 = Integer.parseInt(input1);
-                    num2 = Integer.parseInt(input2);
-                    ResultNumber.setText(findSum(num1,num2).toString());
-                    Maxnumber.setText(findMax(num1,num2).toString());
-                    MinNumber.setText(findMin(num1,num2).toString());
+                    num1 = Double.parseDouble(input1);
+                    num2 = Double.parseDouble(input2);
+                    ResultNumber.setText(String.format("%.2f",findSum(num1,num2)));
+                    Maxnumber.setText(String.format("%.2f",findMax(num1,num2)));
+                    MinNumber.setText(String.format("%.2f",findMin(num1,num2)));
                 }
             }
         });
     }
-    private Integer findSum(int num1 , int num2){
+    private Double findSum(Double num1 , Double num2){
 
         return  num1 + num2;
     }
 
-    private  Integer findMax(int num1 , int num2){
+    private  Double findMax(Double num1 , Double num2){
 
         return Math.max(num1,num2);
     }
 
-    private  Integer findMin(int num1 , int num2){
+    private  Double findMin(Double num1 , Double num2){
 
         return Math.min(num1,num2);
     }

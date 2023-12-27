@@ -16,6 +16,7 @@
         android:ems="10"
         android:inputType="numberDecimal"
         android:textColor="#FF9800"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toEndOf="@+id/textView4"
